@@ -21,5 +21,6 @@ Berksfile.lock
 Policyfile.lock.json
 
 # Added by me, Raf
+./.chef/*.pem
 ./chef/*.pem
 ./chef/encrypted_databag_secret
