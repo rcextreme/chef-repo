@@ -21,3 +21,10 @@ https://learn.chef.io/automate/
 https://learn.chef.io/tutorials/compliance-assess/
 
 https://learn.chef.io/tutorials/compliance-remediate/
+
+https://learn.chef.io/skills/beyond-essentials-1/ what happens during knife bootstrap
+
+https://learn.chef.io/skills/beyond-essentials-2/ what happens during a chef client run
+
+https://learn.chef.io/skills/beyond-essentials-3/ what is the security model used by chef
+
