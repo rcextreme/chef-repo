@@ -1,6 +1,7 @@
 # myapp
 
 chef.io Tutorials:
+
 https://learn.chef.io/tutorials/learn-the-basics/
 
 https://learn.chef.io/tutorials/manage-a-node/
