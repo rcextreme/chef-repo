@@ -5,15 +5,18 @@ To use it just clone it to your workstation.  Then you can run the Cookbooks usi
 
 These are the chef.io Tutorials I followed to learn Chef:
 
-<h1>https://learn.chef.io/tutorials/learn-the-basics/</h1>
 
-<p>choose your server environment - Ubuntu 14.04</p>
-<p>choose your operating environment - Vagrant and Virtual Box</p>
-<p>Set up a virtual machine to manage (With Vagrant and Virtual Box)</p>
-<ol></ol>
-<li> Ensure your workstation (Windows laptop in this case) supports Virtualization<li>
+https://learn.chef.io/tutorials/learn-the-basics
+--------------------------------------------------
+
+choose your server environment - Ubuntu 14.04
+
+choose your operating environment - Vagrant and Virtual Box
+
+Set up a virtual machine to manage (With Vagrant and Virtual Box)
+1. Ensure your workstation (Windows laptop in this case) supports Virtualization
 2. Install the Chef DK on your Windows Workstation (this includes a git and a ssh client)
-3. Install Oracle's VirtualBox
+3. Install Oracle's VirtualBox 
 4. Install Hashicorp's Vagrant
 5. Download an Ubuntu 14.04 VM image onto Vagrant:  
      $vagrant box add bento/ubuntu-14.04 --provider=virtualbox
@@ -23,16 +26,57 @@ These are the chef.io Tutorials I followed to learn Chef:
 7. Connect to your Ubuntu instance
      $vagrant ssh
 8. Install ChefDK on your Ubuntu instance
-Configure a resource
-1. Set up your working directory
+
+Configure a 'file' resource on your Ubuntu instance
+1. Login to the instance and set up your working directory
    $ mkdir ~/chef-repo
 2. Create an /tmp/MOTD file using Chef's file resource
 3. Run chef-client in local mode a second time to display how chef maintains the file
 4. Delete the /tmp/MOTD file using a second Chef file resource with the 'delete' action
-Configure a package an service
+
+Configure a package and service
+1. Ensure the apt cache is up to date - Use the 'apt_update' resource
+2. Install the Apache package - Use the 'package' resource
+3. Start and enable the Apache service - Use the 'service' resource
+4. Add a home page - Use the 'file' resource to set up index.html
+5. Confirm your site is running - Run 'curl localhost'
+
+Make your recipe more maneable
+1. Create a cookbook
+2. Use a template resource to build your home page, instead of the file resource
+3. Run the cookbook
+
 
 
 https://learn.chef.io/tutorials/manage-a-node/
+----------------------------------------------
+
+Choose your server environment: Ubuntu
+
+Choose your Chef server environment: Vagrant and Virtual Box
+
+Set up your workstation
+1. Install ChefDK - We completed this step already in the sections above
+2. Open a ChefDK command prompt (i.e PowerShell)
+3. Verify your ChefDK installationo 'chef --version'
+4. Set up your text editor (atom, sublime, etc)
+5. Create your project directory:  $mkdir ~learn-chef; $ cd !$
+6. Install Git
+7. Verify your SSH client
+
+Set up Chef server and a node to manage
+1. Understand pre-requisites - Same as what we did in learn-the-basics above
+2. Run the Vagrantfile - Use Vagrantfile provided to bring up both a chef-server and a client node
+      -This file has a post script that installs chef and create an 'admin' user and '4thcofee' org
+      -The post script writes the admin's and org's .pem files to '/vagrant/secrets' which is shared to Windows
+      -You can run 'vagrant destroy' at any time to destroy and rebuild this environment
+3. Configure your workstation
+     - create .chef dir
+     - create .chef/knife.rb using the standard content provide in tutorial
+     - Copy the admin user's .pem in .chef/
+     - add a chef server entry to /etc/hosts
+     - fetch the secure CERT using 'knife ssl fetch'
+     - Verify the CERT using 'knife ssl check'
 
 https://learn.chef.io/tutorials/local-development/   ( aka get started with Test Kitchen )
 
