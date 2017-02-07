@@ -5,11 +5,12 @@ To use it just clone it to your workstation.  Then you can run the Cookbooks usi
 
 These are the chef.io Tutorials I followed to learn Chef:
 
-https://learn.chef.io/tutorials/learn-the-basics/
+<h1>https://learn.chef.io/tutorials/learn-the-basics/</h1>
+
 <p>choose your server environment - Ubuntu 14.04</p>
 <p>choose your operating environment - Vagrant and Virtual Box</p>
-<p>Set up a virtual machine to manage (With Vagrant and Virtual Box</p>
-1. Ensure your workstation (Windows laptop in this case) supports Virtualization
+<ol>Set up a virtual machine to manage (With Vagrant and Virtual Box)</ol>
+<li> Ensure your workstation (Windows laptop in this case) supports Virtualization<li>
 2. Install the Chef DK on your Windows Workstation (this includes a git and a ssh client)
 3. Install Oracle's VirtualBox
 4. Install Hashicorp's Vagrant
