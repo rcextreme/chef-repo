@@ -9,7 +9,8 @@ These are the chef.io Tutorials I followed to learn Chef:
 
 <p>choose your server environment - Ubuntu 14.04</p>
 <p>choose your operating environment - Vagrant and Virtual Box</p>
-<ol>Set up a virtual machine to manage (With Vagrant and Virtual Box)</ol>
+<p>Set up a virtual machine to manage (With Vagrant and Virtual Box)</p>
+<ol></ol>
 <li> Ensure your workstation (Windows laptop in this case) supports Virtualization<li>
 2. Install the Chef DK on your Windows Workstation (this includes a git and a ssh client)
 3. Install Oracle's VirtualBox
