@@ -78,6 +78,26 @@ Set up Chef server and a node to manage
      - fetch the secure CERT using 'knife ssl fetch'
      - Verify the CERT using 'knife ssl check'
 
+Upload a cookbook to chef-server
+1. Get the learn_chef_apache2 cookbook from Github
+2. Upload your cookbook to the chef server
+
+
+Bootstrap your node
+1. Get your node's connection details
+2. Run the bootstrap command "knife bootstap ..."
+3. Confirm the bootstrap: knife node list
+
+Update your node's configuration
+1. Add a template to your cookbook html
+2. Update your cookbook's metadata version
+3. Upload your cookbook to the chef server
+4. Run the cookbook on your node
+5. Verify the result
+
+
+
+
 https://learn.chef.io/tutorials/local-development/   ( aka get started with Test Kitchen )
 
 https://learn.chef.io/manage-a-web-app/
