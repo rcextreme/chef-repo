@@ -56,17 +56,16 @@ Choose your server environment: Ubuntu
 Choose your Chef server environment: Vagrant and Virtual Box
 
 Set up your workstation
-1. Install ChefDK - We completed this step already in the sections above
+1. Install ChefDK - We completed this step already in the sections above (Contains git and ssh)
 2. Open a ChefDK command prompt (i.e PowerShell)
 3. Verify your ChefDK installationo 'chef --version'
 4. Set up your text editor (atom, sublime, etc)
 5. Create your project directory:  $mkdir ~learn-chef; $ cd !$
-6. Install Git
-7. Verify your SSH client
+
 
 Set up Chef server and a node to manage
 1. Understand pre-requisites - Same as what we did in learn-the-basics above
-2. Run the Vagrantfile - Use Vagrantfile provided to bring up both a chef-server and a client node
+2. Run the Vagrantfile - Use the Vagrantfile provided to bring up both a chef-server and a client node
       -This file has a post script that installs chef and create an 'admin' user and '4thcofee' org
       -The post script writes the admin's and org's .pem files to '/vagrant/secrets' which is shared to Windows
       -You can run 'vagrant destroy' at any time to destroy and rebuild this environment
@@ -100,16 +99,50 @@ Update your node's configuration
 
 
 https://learn.chef.io/tutorials/local-development/   ( aka get started with Test Kitchen )
+-------------------------------------------------------------------------------------------
+
+Set up your workstation for Chef development
+   You workstation shoul be set up as shown in the sections above with ChefDK, VirtualBox and Vagrant 
+
+Apply a cookbook locally
+1. Get the learn_chef_apache2 cookbook from GitHub if you didn't do the lab steps above.
+2. Examine the Test Kitchen configuration file '.kitchen.yml'.  This file gets created by 'chef generate cookbook'
+   The sections of the .kitchen.yml file are: driver, provisioner, verifier, platforms, suites
+3. Create the Test Kitchen instance running 'kitchen create' from within the dir of the cookbook.
+4. Apply the learn_chef_apache2 cookbook to your test kitchen by running 'kitchen converge'
+
+Resolve a failure
+
+
+
+
 
 https://learn.chef.io/manage-a-web-app/
+---------------------------------------
+
 
 https://learn.chef.io/tutorials/inspec/
+---------------------------------------
+
+
+
 
 https://learn.chef.io/tutorials/chefspec/
+-------------------------------------------
+
+
+
 
 https://learn.chef.io/tutorials/verify-style/
+------------------------------------------------
+
+
+
 
 https://learn.chef.io/automate/
+--------------------------------
+
+
 
 https://learn.chef.io/tutorials/compliance-assess/
 
