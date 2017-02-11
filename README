@@ -84,8 +84,9 @@ Upload a cookbook to chef-server
 
 
 Bootstrap your node
-1. Get your node's connection details
-2. Run the bootstrap command "knife bootstap ..."
+1. Get your node's connection details:"vagrant sshconfig node1-ubunut"
+2. Run the bootstrap command 
+    knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /root/learn-chef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
 3. Confirm the bootstrap: knife node list
 
 Update your node's configuration
