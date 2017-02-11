@@ -110,15 +110,43 @@ Apply a cookbook locally
    The sections of the .kitchen.yml file are: driver, provisioner, verifier, platforms, suites
 3. Create the Test Kitchen instance running 'kitchen create' from within the dir of the cookbook.
 4. Apply the learn_chef_apache2 cookbook to your test kitchen by running 'kitchen converge'
+5. Verify that your Test Kitchen instance is configured as expected
+6. Delete the Test Kitchen instance
+
 
 Resolve a failure
-
-
-
+1. Assign an owner to the home page
+2. Apply the changes converging your kitchen
+3. Resolve the failure 
 
 
 https://learn.chef.io/manage-a-web-app/
 ---------------------------------------
+
+Create the cookbook
+1. Create the awesome_customers_ubuntu cookbook
+2. Apply the awesome_customers_ubuntu cookbook on a Test Kitchen instance
+   - Create .kitchen.yml with the contents provided in tutorial
+   - Install Berkshelf
+   - kitchen converge
+
+Ensure the apt cache is up to date
+1. Reference the apt cookbook from supermarket in you 'awesome_customers_ubuntu/metadata.rb'
+2. Configure the firewall using the the cookbook from supermarket
+3. Create the 'web_admin' user
+
+Configure Apache
+1. Reference the httpd cookbook from supermarket
+2. Write the Web recipe
+3. Create the configuration file
+4. Apply and verify the configuration in kitchen
+
+Create the database passwords
+1. Write the random_password helper method
+2. Define the node attributes
+3. Modify your test kitchen config file to support local development
+
+
 
 
 https://learn.chef.io/tutorials/inspec/
