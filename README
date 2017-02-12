@@ -147,9 +147,12 @@ Create a 'web_admin' user
 
 Configure Apache
 1. Reference the httpd cookbook from supermarket.
-2. Write the Web recipe
-3. Create the configuration file
-4. Apply and verify the configuration in kitchen
+2. Write the Web recipe which will
+   - Install Apache
+   - Configure Apache. This will leverage a template resource
+   - Create index.html
+4. Set the web recipe to run in the default.rb
+5. Apply and verify the configuration in kitchen.  You'll want to see that Apache gets installed and the web page is created and is accessible. 
 
 Create the database passwords
 1. Write the random_password helper method
