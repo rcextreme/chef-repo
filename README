@@ -162,6 +162,15 @@ Create the database passwords
    This is required because kitchen won't store attrs across runs.
 
 
+Configure MySQL
+1. Reference the mysql cookbook from Supermarket
+2. Generate the DB recipe.
+3. Configure MySQL using the mysql_client and mysql_service recipes from the myssql cookbook
+   This will install the mysql pkgs
+4. Set the DB recipe to run including it in default.rb
+5. Test in Kitchen
+
+Configure The MySQL DB
 
 
 
