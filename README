@@ -155,9 +155,12 @@ Configure Apache
 5. Apply and verify the configuration in kitchen.  You'll want to see that Apache gets installed and the web page is created and is accessible. 
 
 Create the database passwords
-1. Write the random_password helper method
+1. Write a method called random_password which we'll use to generate a password for mysql.  Store the method in the attribue file
 2. Define the node attributes
-3. Modify your test kitchen config file to support local development
+3. Modify your test kitchen config file to support local development.  
+   We'll add a password attributes directly to the kitchen.yml to overrride the value from the attrs file.
+   This is required because kitchen won't store attrs across runs.
+
 
 
 
