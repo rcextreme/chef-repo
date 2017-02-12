@@ -132,11 +132,21 @@ Create the cookbook
 
 Ensure the apt cache is up to date
 1. Reference the apt cookbook from supermarket in you 'awesome_customers_ubuntu/metadata.rb'
-2. Configure the firewall using the the cookbook from supermarket
-3. Create the 'web_admin' user
+2. Call apt::get in the default recipe
+3. Test this in Kitchen
+
+Configure Firewall
+1. Reference the firewall cookbook from supermarket in metadata.rb
+2. Create a recipe called 'Firewall' which uses the 'firewall_rule' resource from the Firewall cookbook.
+3. Test it in Kitchen and confirm the firewal config by running '$ sudo ufw status'
+
+Create a 'web_admin' user
+1. Create a recipe called 'web_user' which will create a user and a group both called 'web_admin'
+2. Add a call to the recipe in the default.rb
+3. Test this in kitchen
 
 Configure Apache
-1. Reference the httpd cookbook from supermarket
+1. Reference the httpd cookbook from supermarket.
 2. Write the Web recipe
 3. Create the configuration file
 4. Apply and verify the configuration in kitchen
