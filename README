@@ -10,7 +10,6 @@ https://learn.chef.io/tutorials/learn-the-basics
 --------------------------------------------------
 
 choose your server environment - Ubuntu 14.04
-
 choose your operating environment - Vagrant and Virtual Box
 
 Set up a virtual machine to manage (With Vagrant and Virtual Box)
@@ -52,7 +51,6 @@ https://learn.chef.io/tutorials/manage-a-node/
 ----------------------------------------------
 
 Choose your server environment: Ubuntu
-
 Choose your Chef server environment: Vagrant and Virtual Box
 
 Set up your workstation
@@ -65,7 +63,7 @@ Set up your workstation
 
 Set up Chef server and a node to manage
 1. Understand pre-requisites - Same as what we did in learn-the-basics above
-2. Run the Vagrantfile - Use the Vagrantfile provided to bring up both a chef-server and a client node
+2. Run the Vagrantfile - Use the Vagrantfile provided.  It brings up both a chef-server and a client node
       -This file has a post script that installs chef and create an 'admin' user and '4thcofee' org
       -The post script writes the admin's and org's .pem files to '/vagrant/secrets' which is shared to Windows
       -You can run 'vagrant destroy' at any time to destroy and rebuild this environment
@@ -76,6 +74,7 @@ Set up Chef server and a node to manage
      - add a chef server entry to /etc/hosts
      - fetch the secure CERT using 'knife ssl fetch'
      - Verify the CERT using 'knife ssl check'
+
 
 Upload a cookbook to chef-server
 1. Get the learn_chef_apache2 cookbook from Github
@@ -88,7 +87,7 @@ Bootstrap your node
     knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /root/learn-chef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
 3. Confirm the bootstrap: knife node list
 
-Update your node's configuration
+Update your node's configuration (Run chef-client)
 1. Add a template to your cookbook html
 2. Update your cookbook's metadata version
 3. Upload your cookbook to the chef server
@@ -170,8 +169,39 @@ Configure MySQL
 4. Set the DB recipe to run including it in default.rb
 5. Test in Kitchen
 
-Configure The MySQL DB
 
+Configure The MySQL DB
+1. Reference the mysql2_chef_gem and database cookbooks
+   - The mysql2_chef_gem installs the mysql2 Ruby library which will be used by the database cookbooks.
+   - The database cookbook is fetched from Supermarket.
+2. Install the mysql2 Ruby gem.  You'll use  the mysql2_chef_gem resource.
+3. Create the database instance.  You'll use the mysql_database resource, which comes from the database cookbook.
+4. Create a MySQL database user.  You'll use the mysql_database_user resource from the database cookbook to achieve this.
+   This 
+5. Create a database table and some sample data.  This will be done through a mysql script we will write and the execute with chef.
+   - Create a cookbook file that will contain the script and write the contents into the file
+   - Add the cookbook_file resource to copy the script over to the hosts
+   - Add an execute resource to run the script which will create the table
+6. Test in kitchen
+   run ' mysqlshow -h 127.0.0.1 -uroot -pmysql_root_password'
+  
+
+Configure PHP
+1. Install PHP 
+   - Install the http_module from the httpd cookbook.
+   - Install php5-mysql using the package resource
+2. Write the PHP application 
+   - Create a template for the index.php.  Include all the logic to connect to mysql and display the data you want to display.
+3. Test in kitchen
+
+
+Run you Web Application on a Node
+1. Bring up a node to manage
+   We'll use the node1-ubuntu vagrant box from this tutorial
+2. Upload your cookbooks to Chef server
+   -Run 'berks install' to download the cookbook dependencies we have identified
+   -Run 'berks upload' to upload all the cookbooks to the chef server.
+  
 
 
 https://learn.chef.io/tutorials/inspec/
