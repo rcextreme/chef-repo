@@ -200,7 +200,7 @@ Run you Web Application on a Node
    We'll use the node1-ubuntu vagrant box from this tutorial
 2. Upload your cookbooks to Chef server
    -Run 'berks install' to download the cookbook dependencies we have identified
-   -Run 'berks upload' to upload all the cookbooks to the chef server.
+   -Run 'berks upload --no-ssl-verify' to upload all the cookbooks to the chef server.
   
 
 
