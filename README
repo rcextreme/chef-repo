@@ -19,6 +19,8 @@ Set up a virtual machine to manage (With Vagrant and Virtual Box)
 4. Install Hashicorp's Vagrant
 5. Download an Ubuntu 14.04 VM image onto Vagrant:  
      $vagrant box add bento/ubuntu-14.04 --provider=virtualbox
+     or
+     $vagrant box add bento/ubuntu-16.04 --provider=virtualbox
 6. Bring up an Ubuntu instance in Virtual Box using Vagrant and its image: 
      $vagrant init bento/ubuntu-14.04   (this generates the Vagrantfile)
      $vagrant up 
